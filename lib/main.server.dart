@@ -13,6 +13,11 @@ import 'package:shelf_router/shelf_router.dart';
 
 const int _kPort = 8080;
 const String _kSiteTitle = 'Portfolio';
+// Inter, the site's typeface, from Google Fonts: regular, medium and semibold.
+const String _kFontHost = 'https://fonts.googleapis.com';
+const String _kFontFilesHost = 'https://fonts.gstatic.com';
+const String _kInterStylesheet =
+    '$_kFontHost/css2?family=Inter:wght@400;500;600&display=swap';
 
 void main() async {
   Jaspr.initializeApp(options: defaultServerOptions);
@@ -38,6 +43,13 @@ void main() async {
 Document get _document => const Document(
   title: _kSiteTitle,
   head: <Component>[
+    link(rel: 'preconnect', href: _kFontHost),
+    link(
+      rel: 'preconnect',
+      href: _kFontFilesHost,
+      attributes: <String, String>{'crossorigin': ''},
+    ),
+    link(rel: 'stylesheet', href: _kInterStylesheet),
     link(rel: 'manifest', href: 'manifest.json'),
     script(src: 'flutter_bootstrap.js', async: true),
   ],
