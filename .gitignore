@@ -43,3 +43,5 @@ app.*.map.json
 
 # FVM Version Cache
 .fvm/
+# Project notes for Claude
+CLAUDE.md
