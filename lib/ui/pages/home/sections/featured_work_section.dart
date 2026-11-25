@@ -5,6 +5,8 @@ import 'package:jaspr_design_system/jaspr_design_system.dart';
 import '../../../../data/home_content.dart';
 import '../../../shared/case_study_card.dart';
 
+const DsCssClass _kTitle = DsCssClass('featured-work-title');
+
 class FeaturedWorkSection extends StatelessComponent {
   const FeaturedWorkSection({super.key});
 
@@ -12,7 +14,7 @@ class FeaturedWorkSection extends StatelessComponent {
   Component build(BuildContext context) {
     return DsSection.tinted(
       children: [
-        const h2(classes: 'featured-work-title', [.text(HomeContent.featuredTitle)]),
+        h2(classes: _kTitle.name, [const .text(HomeContent.featuredTitle)]),
         DsGrid(
           children: [
             for (final caseStudy in HomeContent.featuredWork) CaseStudyCard(caseStudy: caseStudy),
@@ -24,6 +26,6 @@ class FeaturedWorkSection extends StatelessComponent {
 
   @css
   static List<StyleRule> get styles => [
-    css('.featured-work-title').styles(margin: const .only(bottom: DsSpacing.x8)),
+    css(_kTitle.selector).styles(margin: .only(bottom: DsSpacing.x8)),
   ];
 }

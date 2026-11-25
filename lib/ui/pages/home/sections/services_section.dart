@@ -5,6 +5,9 @@ import 'package:jaspr_design_system/jaspr_design_system.dart';
 import '../../../../data/home_content.dart';
 import '../../../../data/models/design_service.dart';
 
+const DsCssClass _kTitle = DsCssClass('services-title');
+const DsCssClass _kItem = DsCssClass('service-item');
+
 class ServicesSection extends StatelessComponent {
   const ServicesSection({super.key});
 
@@ -12,7 +15,7 @@ class ServicesSection extends StatelessComponent {
   Component build(BuildContext context) {
     return DsSection.plain(
       children: [
-        const h2(classes: 'services-title', [.text(HomeContent.servicesTitle)]),
+        h2(classes: _kTitle.name, [const .text(HomeContent.servicesTitle)]),
         DsGrid(
           children: [
             for (final service in HomeContent.services) _ServiceItem(service: service),
@@ -25,9 +28,9 @@ class ServicesSection extends StatelessComponent {
   // Also styles _ServiceItem: Jaspr only collects @css from public classes.
   @css
   static List<StyleRule> get styles => [
-    css('.services-title').styles(margin: const .only(bottom: DsSpacing.x8)),
-    css('.service-item').styles(display: .flex, flexDirection: .column, gap: const .all(DsSpacing.x2)),
-    css('.service-item p').styles(color: DsColors.textMuted),
+    css(_kTitle.selector).styles(margin: .only(bottom: DsSpacing.x8)),
+    css(_kItem.selector).styles(display: .flex, flexDirection: .column, gap: .all(DsSpacing.x2)),
+    css('${_kItem.selector} p').styles(color: DsColors.textMuted),
   ];
 }
 
@@ -38,7 +41,7 @@ class _ServiceItem extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return div(classes: 'service-item', [
+    return div(classes: _kItem.name, [
       h3([.text(service.title)]),
       p([.text(service.description)]),
     ]);
