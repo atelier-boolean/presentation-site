@@ -5,13 +5,13 @@ import '../../core/router/app_routes.dart';
 import '../../data/site_content.dart';
 
 class SiteHeader extends StatelessComponent {
-  const SiteHeader({super.key});
-
   static const List<({String label, String path})> _links = [
     (label: 'Work', path: AppRoutes.work),
     (label: 'About', path: AppRoutes.about),
     (label: 'Contact', path: AppRoutes.contact),
   ];
+
+  const SiteHeader({super.key});
 
   @override
   Component build(BuildContext context) {

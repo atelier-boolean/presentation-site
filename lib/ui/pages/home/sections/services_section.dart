@@ -32,9 +32,9 @@ class ServicesSection extends StatelessComponent {
 }
 
 class _ServiceItem extends StatelessComponent {
-  const _ServiceItem({required this.service});
-
   final DesignService service;
+
+  const _ServiceItem({required this.service});
 
   @override
   Component build(BuildContext context) {
