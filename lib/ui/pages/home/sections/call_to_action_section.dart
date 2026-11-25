@@ -15,8 +15,8 @@ class CallToActionSection extends StatelessComponent {
     return DsSection.tinted(
       children: <Component>[
         div(classes: _kRoot.name, const <Component>[
-          h2(<Component>[.text(HomeContent.ctaTitle)]),
-          p(<Component>[.text(HomeContent.ctaText)]),
+          DsText.headlineMedium(HomeContent.ctaTitle),
+          DsText.bodyLarge(HomeContent.ctaText, tone: .muted),
           DsLinkButton.primary(label: HomeContent.contactLabel, href: AppRoutes.contact),
         ]),
       ],
@@ -32,6 +32,5 @@ class CallToActionSection extends StatelessComponent {
       gap: .all(DsSpacing.x4),
       textAlign: .center,
     ),
-    css('${_kRoot.selector} p').styles(color: DsColors.textMuted),
   ];
 }

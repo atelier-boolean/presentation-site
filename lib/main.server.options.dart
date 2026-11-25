@@ -5,14 +5,6 @@
 // Generated with jaspr_builder
 
 import 'package:jaspr/server.dart';
-import 'package:jaspr_design_system/src/components/containers/ds_media_placeholder.dart'
-    as _ds_media_placeholder;
-import 'package:jaspr_design_system/src/components/layout/ds_container.dart'
-    as _ds_container;
-import 'package:jaspr_design_system/src/components/layout/ds_grid.dart'
-    as _ds_grid;
-import 'package:jaspr_design_system/src/components/layout/ds_section.dart'
-    as _ds_section;
 import 'package:jaspr_design_system/src/styles/ds_base_styles.dart'
     as _ds_base_styles;
 import 'package:jaspr_design_system/src/styles/ds_slot_styles.dart'
@@ -48,10 +40,6 @@ ServerOptions get defaultServerOptions => ServerOptions(
   styles: () => [
     ..._ds_base_styles.dsBaseStyles,
     ..._ds_slot_styles.dsSlotStyles,
-    ..._ds_media_placeholder.DsMediaPlaceholder.styles,
-    ..._ds_container.DsContainer.styles,
-    ..._ds_grid.DsGrid.styles,
-    ..._ds_section.DsSection.styles,
     ..._ds_theme.DsTheme.styles,
     ..._call_to_action_section.CallToActionSection.styles,
     ..._featured_work_section.FeaturedWorkSection.styles,

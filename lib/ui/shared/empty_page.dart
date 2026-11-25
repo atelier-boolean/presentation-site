@@ -1,4 +1,3 @@
-import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_design_system/jaspr_design_system.dart';
 
@@ -12,7 +11,7 @@ class EmptyPage extends StatelessComponent {
   Component build(BuildContext context) {
     return DsSection.plain(
       children: <Component>[
-        h1(<Component>[.text(title)]),
+        DsText.displaySmall(title),
       ],
     );
   }

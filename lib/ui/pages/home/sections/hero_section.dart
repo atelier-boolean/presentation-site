@@ -7,8 +7,6 @@ import 'package:presentation_site/data/home_content.dart';
 import 'package:presentation_site/data/site_content.dart';
 
 const DsCssClass _kRoot = DsCssClass('hero');
-final DsCssClass _kRole = _kRoot.part('role');
-final DsCssClass _kPitch = _kRoot.part('pitch');
 final DsCssClass _kActions = _kRoot.part('actions');
 
 class HeroSection extends StatelessComponent {
@@ -19,9 +17,9 @@ class HeroSection extends StatelessComponent {
     return DsSection.plain(
       children: <Component>[
         div(classes: _kRoot.name, <Component>[
-          p(classes: _kRole.name, const <Component>[.text(SiteContent.role)]),
-          const h1(<Component>[.text(SiteContent.name)]),
-          p(classes: _kPitch.name, const <Component>[.text(HomeContent.heroPitch)]),
+          const DsText.titleMedium(SiteContent.role, tag: .p, tone: .primary),
+          const DsText.displayMedium(SiteContent.name),
+          const DsText.titleLarge(HomeContent.heroPitch, tag: .p, tone: .muted),
           div(classes: _kActions.name, const <Component>[
             DsLinkButton.primary(label: HomeContent.seeWorkLabel, href: AppRoutes.work),
             DsLinkButton.secondary(
@@ -42,8 +40,6 @@ class HeroSection extends StatelessComponent {
       flexDirection: .column,
       gap: .all(DsSpacing.x6),
     ),
-    css(_kRole.selector).styles(color: DsColors.primary, fontWeight: .w600),
-    css(_kPitch.selector).styles(color: DsColors.textMuted, fontSize: DsFontSize.xl),
     css(
       _kActions.selector,
     ).styles(display: .flex, flexWrap: .wrap, gap: .all(DsSpacing.x4)),
