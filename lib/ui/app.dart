@@ -3,14 +3,23 @@ import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 
 import '../core/router/app_routes.dart';
+import 'shared/site_header.dart';
 
 class App extends StatelessComponent {
   const App({super.key});
 
   @override
   Component build(BuildContext context) {
-    return main_([
-      Router(routes: AppRoutes.all),
-    ]);
+    return Router(
+      routes: [
+        ShellRoute(
+          builder: (context, state, child) => .fragment([
+            const SiteHeader(),
+            main_([child]),
+          ]),
+          routes: AppRoutes.all,
+        ),
+      ],
+    );
   }
 }
