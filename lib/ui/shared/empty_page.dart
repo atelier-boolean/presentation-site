@@ -1,8 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-
-import '../../core/theme/app_sizes.dart';
-import 'page_container.dart';
+import 'package:jaspr_design_system/jaspr_design_system.dart';
 
 // A page with only its title, for pages not built yet.
 class EmptyPage extends StatelessComponent {
@@ -12,17 +10,10 @@ class EmptyPage extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return section(classes: 'empty-page', [
-      PageContainer(
-        children: [
-          h1([.text(title)]),
-        ],
-      ),
-    ]);
+    return DsSection.plain(
+      children: [
+        h1([.text(title)]),
+      ],
+    );
   }
-
-  @css
-  static List<StyleRule> get styles => [
-    css('.empty-page').styles(padding: .symmetric(vertical: AppSizes.s2400)),
-  ];
 }

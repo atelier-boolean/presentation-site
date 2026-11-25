@@ -1,21 +1,19 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:jaspr_design_system/jaspr_design_system.dart';
 
-import '../../../../core/theme/app_sizes.dart';
 import '../../../../data/home_content.dart';
-import '../../../shared/card_grid.dart';
 import '../../../shared/case_study_card.dart';
-import '../../../shared/page_section.dart';
 
 class FeaturedWorkSection extends StatelessComponent {
   const FeaturedWorkSection({super.key});
 
   @override
   Component build(BuildContext context) {
-    return PageSection.tinted(
+    return DsSection.tinted(
       children: [
         const h2(classes: 'featured-work-title', [.text(HomeContent.featuredTitle)]),
-        CardGrid(
+        DsGrid(
           children: [
             for (final caseStudy in HomeContent.featuredWork) CaseStudyCard(caseStudy: caseStudy),
           ],
@@ -26,6 +24,6 @@ class FeaturedWorkSection extends StatelessComponent {
 
   @css
   static List<StyleRule> get styles => [
-    css('.featured-work-title').styles(margin: const .only(bottom: AppSizes.s800)),
+    css('.featured-work-title').styles(margin: const .only(bottom: DsSpacing.x8)),
   ];
 }
