@@ -1,7 +1,7 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_design_system/jaspr_design_system.dart';
 
-import '../../data/models/case_study_preview.dart';
+import 'package:presentation_site/data/models/case_study_preview.dart';
 
 class CaseStudyCard extends StatelessComponent {
   final CaseStudyPreview caseStudy;

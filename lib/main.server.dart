@@ -4,13 +4,12 @@ import 'dart:io';
 
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/server.dart';
+import 'package:presentation_site/core/server/api_handler.dart';
+import 'package:presentation_site/main.server.options.dart';
+import 'package:presentation_site/ui/app.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart' as shelf_io;
 import 'package:shelf_router/shelf_router.dart';
-
-import 'core/server/api_handler.dart';
-import 'main.server.options.dart';
-import 'ui/app.dart';
 
 const int _kPort = 8080;
 const String _kSiteTitle = 'Portfolio';
@@ -18,15 +17,14 @@ const String _kSiteTitle = 'Portfolio';
 void main() async {
   Jaspr.initializeApp(options: defaultServerOptions);
 
-  final router = Router()
-    ..mount('/api', apiHandler)
-    ..mount('/', serveApp((request, render) => render(_document)));
-
-  final handler = const Pipeline().addMiddleware(logRequests()).addHandler(router.call);
-
   // main() runs again on every hot reload: only the latest run keeps its server.
-  final reloadLock = activeReloadLock = Object();
-  final server = await shelf_io.serve(handler, InternetAddress.anyIPv4, _kPort, shared: true);
+  final Object reloadLock = activeReloadLock = Object();
+  final HttpServer server = await shelf_io.serve(
+    const Pipeline().addMiddleware(logRequests()).addHandler(_router.call),
+    InternetAddress.anyIPv4,
+    _kPort,
+    shared: true,
+  );
   if (reloadLock != activeReloadLock) {
     await server.close();
     return;
@@ -37,14 +35,18 @@ void main() async {
   stdout.writeln('Serving at http://${server.address.host}:${server.port}');
 }
 
-Document get _document => Document(
+Document get _document => const Document(
   title: _kSiteTitle,
-  head: [
+  head: <Component>[
     link(rel: 'manifest', href: 'manifest.json'),
     script(src: 'flutter_bootstrap.js', async: true),
   ],
-  body: const App(),
+  body: App(),
 );
+
+Router get _router => Router()
+  ..mount('/api', apiHandler)
+  ..mount('/', serveApp((Request request, RenderFunction render) => render(_document)));
 
 HttpServer? activeServer;
 Object? activeReloadLock;

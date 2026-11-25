@@ -4,5 +4,9 @@ class CaseStudyPreview {
   final String type;
   final String summary;
 
-  const CaseStudyPreview({required this.title, required this.type, required this.summary});
+  const CaseStudyPreview({
+    required this.title,
+    required this.type,
+    required this.summary,
+  });
 }

@@ -1,6 +1,6 @@
 import 'package:jaspr/jaspr.dart';
 
-import '../../shared/empty_page.dart';
+import 'package:presentation_site/ui/shared/empty_page.dart';
 
 class WorkPage extends StatelessComponent {
   const WorkPage({super.key});

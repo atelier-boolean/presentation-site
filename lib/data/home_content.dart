@@ -1,5 +1,5 @@
-import 'models/case_study_preview.dart';
-import 'models/design_service.dart';
+import 'package:presentation_site/data/models/case_study_preview.dart';
+import 'package:presentation_site/data/models/design_service.dart';
 
 abstract final class HomeContent {
   static const String heroPitch =
@@ -8,7 +8,7 @@ abstract final class HomeContent {
   static const String contactLabel = 'Get in touch';
 
   static const String featuredTitle = 'Selected work';
-  static const List<CaseStudyPreview> featuredWork = [
+  static const List<CaseStudyPreview> featuredWork = <CaseStudyPreview>[
     CaseStudyPreview(
       title: 'Banking app redesign',
       type: 'Mobile app',
@@ -27,7 +27,7 @@ abstract final class HomeContent {
   ];
 
   static const String servicesTitle = 'What I do';
-  static const List<DesignService> services = [
+  static const List<DesignService> services = <DesignService>[
     DesignService(
       title: 'UX research',
       description: 'Interviews and tests that show what people really need.',

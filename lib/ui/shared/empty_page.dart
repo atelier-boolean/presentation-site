@@ -11,8 +11,8 @@ class EmptyPage extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return DsSection.plain(
-      children: [
-        h1([.text(title)]),
+      children: <Component>[
+        h1(<Component>[.text(title)]),
       ],
     );
   }

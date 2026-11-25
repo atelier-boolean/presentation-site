@@ -2,8 +2,8 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_design_system/jaspr_design_system.dart';
 
-import '../../../../core/router/app_routes.dart';
-import '../../../../data/home_content.dart';
+import 'package:presentation_site/core/router/app_routes.dart';
+import 'package:presentation_site/data/home_content.dart';
 
 const DsCssClass _kRoot = DsCssClass('call-to-action');
 
@@ -13,18 +13,18 @@ class CallToActionSection extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return DsSection.tinted(
-      children: [
-        div(classes: _kRoot.name, [
-          const h2([.text(HomeContent.ctaTitle)]),
-          const p([.text(HomeContent.ctaText)]),
-          const DsLinkButton.primary(label: HomeContent.contactLabel, href: AppRoutes.contact),
+      children: <Component>[
+        div(classes: _kRoot.name, const <Component>[
+          h2(<Component>[.text(HomeContent.ctaTitle)]),
+          p(<Component>[.text(HomeContent.ctaText)]),
+          DsLinkButton.primary(label: HomeContent.contactLabel, href: AppRoutes.contact),
         ]),
       ],
     );
   }
 
   @css
-  static List<StyleRule> get styles => [
+  static List<StyleRule> get styles => <StyleRule>[
     css(_kRoot.selector).styles(
       display: .flex,
       flexDirection: .column,
