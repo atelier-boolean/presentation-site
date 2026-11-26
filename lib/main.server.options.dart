@@ -5,10 +5,6 @@
 // Generated with jaspr_builder
 
 import 'package:jaspr/server.dart';
-import 'package:jaspr_design_system/src/styles/ds_base_styles.dart'
-    as _ds_base_styles;
-import 'package:jaspr_design_system/src/styles/ds_slot_styles.dart'
-    as _ds_slot_styles;
 import 'package:jaspr_design_system/src/theme/ds_theme.dart' as _ds_theme;
 
 /// Default [ServerOptions] for use with your Jaspr project.
@@ -29,9 +25,5 @@ import 'package:jaspr_design_system/src/theme/ds_theme.dart' as _ds_theme;
 /// ```
 ServerOptions get defaultServerOptions => ServerOptions(
   clientId: 'main.client.dart.js',
-  styles: () => [
-    ..._ds_base_styles.dsBaseStyles,
-    ..._ds_slot_styles.dsSlotStyles,
-    ..._ds_theme.DsTheme.styles,
-  ],
+  styles: () => [..._ds_theme.DsTheme.styles],
 );

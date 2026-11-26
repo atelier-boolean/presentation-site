@@ -12,6 +12,7 @@ analyzer:
   exclude:
     - build/**
     - "**/*.g.dart"
+    - web/**
     # Add Jaspr's generated options files here if analysis flags them.
 
 plugins:
