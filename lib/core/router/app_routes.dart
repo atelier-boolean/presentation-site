@@ -37,7 +37,10 @@ abstract final class AppRoutes {
     Route(
       path: contact,
       title: 'Contact',
-      builder: (BuildContext context, RouteState state) => const ContactPage(),
+      builder: (BuildContext context, RouteState state) => ContactPage(
+        sent: state.queryParams[contactSentQuery] == queryYes,
+        invalid: state.queryParams[contactInvalidQuery] == queryYes,
+      ),
     ),
   ];
 }

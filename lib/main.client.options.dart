@@ -6,6 +6,9 @@
 
 import 'package:jaspr/client.dart';
 
+import 'package:presentation_site/ui/pages/contact/contact_form.dart'
+    deferred as _contact_form;
+
 /// Default [ClientOptions] for use with your Jaspr project.
 ///
 /// Use this to initialize Jaspr **before** calling [runApp].
@@ -22,4 +25,14 @@ import 'package:jaspr/client.dart';
 ///   runApp(...);
 /// }
 /// ```
-ClientOptions get defaultClientOptions => ClientOptions();
+ClientOptions get defaultClientOptions => ClientOptions(
+  clients: {
+    'contact_form': ClientLoader(
+      (p) => _contact_form.ContactForm(
+        sent: p['sent'] as bool,
+        invalid: p['invalid'] as bool,
+      ),
+      loader: _contact_form.loadLibrary,
+    ),
+  },
+);

@@ -11,10 +11,12 @@ import 'package:presentation_site/data/repos/contact_send_result.dart';
 /// The caller creates the [http.Client] and closes it, so tests can pass a fake one.
 ///
 /// ```dart
-/// final ContactSendResult result = await ContactRepository(client: client).send(message);
+/// final ContactRepository repository = ContactRepository(client: client);
+/// final ContactSendResult result = await repository.send(message);
 /// ```
 final class ContactRepository {
-  static const String _kPath = '/api/contact';
+  /// Where messages go; the form posts here too before the page's code runs.
+  static const String path = '/api/contact';
   static const String _kErrorsKey = 'errors';
   static const Map<String, String> _kJsonHeaders = <String, String>{
     'content-type': 'application/json',
@@ -26,7 +28,7 @@ final class ContactRepository {
   /// [endpoint] defaults to `/api/contact` on the page's own site.
   ContactRepository({required http.Client client, Uri? endpoint})
     : _client = client,
-      _endpoint = endpoint ?? Uri.base.resolve(_kPath);
+      _endpoint = endpoint ?? Uri.base.resolve(path);
 
   /// Sends [message] and says how it went. Never throws: every outcome is a result.
   Future<ContactSendResult> send(ContactMessage message) async {
