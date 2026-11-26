@@ -1,7 +1,8 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr_design_system/jaspr_design_system.dart';
 
-// Cosmic Window's palette (the Flutter design system's `DsPalette`), deepened to near-black.
+// Cosmic Window's palette (the Flutter design system's `DsPalette`), deepened to
+// near-black.
 const Color _kNight = Color('#0B0D12');
 const Color _kSurface = Color('#12151C');
 const Color _kSurfaceRaised = Color('#1A1E27');
@@ -19,7 +20,8 @@ const Color _kTintHover = Color.rgba(255, 255, 255, 0.06);
 const Color _kBarFill = Color.rgba(11, 13, 18, 0.72);
 const Color _kTopLight = Color.rgba(196, 183, 214, 0.08);
 
-// The one light source: a soft glow from the top of the page, gone by a quarter of the way down.
+// The one light source: a soft glow from the top of the page, gone by a quarter of the
+// way down.
 const List<double> _kTopLightStops = <double>[0, 0.25];
 
 // The Flutter design system's `DsBlur.frosted`.
@@ -40,8 +42,8 @@ const FontFamily _kInter = FontFamily.list(<FontFamily>[
   FontFamilies.sansSerif,
 ]);
 
-// The site's theme: Cosmic Window's colours, flat near-black surfaces with hairline borders, one soft light from
-// the top, and Inter.
+// The site's theme: Cosmic Window's colours, flat near-black surfaces with hairline
+// borders, one soft light from the top, and Inter.
 final DsThemeData siteTheme = DsThemeData(
   colors: const DsColorsData(
     background: _kNight,
@@ -97,6 +99,7 @@ final DsThemeData siteTheme = DsThemeData(
   headlineMedium: _kHeading,
   headlineSmall: _kHeading,
   titleLarge: const DsStyle(fontWeight: .w500),
-  // Magenta, Cosmic Window's highlight, only as a small accent: labels and the hero's role.
+  // Magenta, Cosmic Window's highlight, only as a small accent: labels and the hero's
+  // role.
   primaryText: const DsStyle(foreground: _kVibrantMagenta),
 );

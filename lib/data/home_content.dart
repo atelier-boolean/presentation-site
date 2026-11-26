@@ -3,7 +3,8 @@ import 'package:presentation_site/data/models/design_service.dart';
 
 abstract final class HomeContent {
   static const String heroPitch =
-      'I design calm, clear apps and websites that people enjoy using, from the first sketch to the last pixel.';
+      'I design calm, clear apps and websites that people enjoy using, '
+      'from the first sketch to the last pixel.';
   static const String seeWorkLabel = 'See my work';
   static const String contactLabel = 'Get in touch';
 
