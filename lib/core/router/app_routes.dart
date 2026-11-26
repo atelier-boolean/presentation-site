@@ -12,6 +12,12 @@ abstract final class AppRoutes {
   static const String about = '/about';
   static const String contact = '/contact';
 
+  /// Query keys `/contact` reads after a plain form post: the message was sent, or some
+  /// fields need fixing.
+  static const String contactSentQuery = 'sent';
+  static const String contactInvalidQuery = 'invalid';
+  static const String queryYes = '1';
+
   static final List<RouteBase> all = <RouteBase>[
     Route(
       path: home,
