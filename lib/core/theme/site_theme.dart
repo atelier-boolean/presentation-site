@@ -11,6 +11,10 @@ const Color _kMutedSkyBlue = Color('#8FA3C2');
 const Color _kSoftPeriwinkle = Color('#C4B7D6');
 const Color _kPeriwinkleLight = Color('#D6CCE3');
 const Color _kVibrantMagenta = Color('#E7549A');
+// The Flutter design system's dark error and disabled colours.
+const Color _kDustyRose = Color('#CF6679');
+const Color _kDusk = Color('#2E3544');
+const Color _kSlateGrey = Color('#5C5C5C');
 
 // Hairlines and tints: white at low opacity, so they sit on any dark surface.
 const Color _kHairline = Color.rgba(255, 255, 255, 0.08);
@@ -55,6 +59,9 @@ final DsThemeData siteTheme = DsThemeData(
     primary: _kSoftPeriwinkle,
     primaryHover: _kPeriwinkleLight,
     onPrimary: _kNight,
+    error: _kDustyRose,
+    surfaceDisabled: _kDusk,
+    textDisabled: _kSlateGrey,
   ),
   fonts: const DsFontsData(body: _kInter, heading: _kInter),
   page: const DsStyle(
