@@ -4,14 +4,9 @@ import 'package:jaspr_design_system/jaspr_design_system.dart';
 import 'package:presentation_site/core/router/app_routes.dart';
 import 'package:presentation_site/data/site_content.dart';
 
+/// The top bar on every page: the name, linking home, and the pages, marking the
+/// current one.
 class SiteHeader extends StatelessComponent {
-  static const List<({String label, String path})> _links =
-      <({String label, String path})>[
-        (label: 'Work', path: AppRoutes.work),
-        (label: 'About', path: AppRoutes.about),
-        (label: 'Contact', path: AppRoutes.contact),
-      ];
-
   const SiteHeader({super.key});
 
   @override
@@ -20,11 +15,11 @@ class SiteHeader extends StatelessComponent {
       title: SiteContent.name,
       titleHref: AppRoutes.home,
       links: <DsNavLink>[
-        for (final ({String label, String path}) link in _links)
+        for (final ({String label, String path}) page in AppRoutes.navigation)
           DsNavLink(
-            label: link.label,
-            href: link.path,
-            isCurrent: context.url == link.path,
+            label: page.label,
+            href: page.path,
+            isCurrent: context.url == page.path,
           ),
       ],
     );

@@ -5,8 +5,10 @@ import 'package:jaspr_router/jaspr_router.dart';
 
 import 'package:presentation_site/core/router/app_routes.dart';
 import 'package:presentation_site/core/theme/site_theme.dart';
+import 'package:presentation_site/ui/shared/site_footer.dart';
 import 'package:presentation_site/ui/shared/site_header.dart';
 
+/// The site's root: the theme, then every page between the header and the footer.
 class App extends StatelessComponent {
   const App({super.key});
 
@@ -21,6 +23,7 @@ class App extends StatelessComponent {
                 .fragment(<Component>[
                   const SiteHeader(),
                   main_(<Component>[child]),
+                  const SiteFooter(),
                 ]),
             routes: AppRoutes.all,
           ),

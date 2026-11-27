@@ -6,6 +6,7 @@ import 'package:presentation_site/ui/pages/contact/contact_page.dart';
 import 'package:presentation_site/ui/pages/home/home_page.dart';
 import 'package:presentation_site/ui/pages/work/work_page.dart';
 
+/// Every route and path of the site, in one place.
 abstract final class AppRoutes {
   static const String home = '/';
   static const String work = '/work';
@@ -17,6 +18,14 @@ abstract final class AppRoutes {
   static const String contactSentQuery = 'sent';
   static const String contactInvalidQuery = 'invalid';
   static const String queryYes = '1';
+
+  /// The pages in the header's and footer's navigation, in order.
+  static const List<({String label, String path})> navigation =
+      <({String label, String path})>[
+        (label: 'Work', path: work),
+        (label: 'About', path: about),
+        (label: 'Contact', path: contact),
+      ];
 
   static final List<RouteBase> all = <RouteBase>[
     Route(
