@@ -13,6 +13,8 @@ import 'package:shelf_router/shelf_router.dart';
 
 const int _kPort = 8080;
 const String _kSiteTitle = 'Portfolio';
+// The language every page is written in.
+const String _kLanguage = 'en';
 // Inter, the site's typeface, from Google Fonts: regular, medium and semibold.
 const String _kFontHost = 'https://fonts.googleapis.com';
 const String _kFontFilesHost = 'https://fonts.gstatic.com';
@@ -41,6 +43,7 @@ void main() async {
 }
 
 Document get _document => const Document(
+  lang: _kLanguage,
   title: _kSiteTitle,
   head: <Component>[
     link(rel: 'preconnect', href: _kFontHost),
@@ -50,8 +53,6 @@ Document get _document => const Document(
       attributes: <String, String>{'crossorigin': ''},
     ),
     link(rel: 'stylesheet', href: _kInterStylesheet),
-    link(rel: 'manifest', href: 'manifest.json'),
-    script(src: 'flutter_bootstrap.js', async: true),
   ],
   body: App(),
 );

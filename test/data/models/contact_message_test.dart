@@ -1,5 +1,5 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:presentation_site/data/models/contact_message.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('ContactMessage.fromMap', () {

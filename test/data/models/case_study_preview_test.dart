@@ -1,5 +1,5 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:presentation_site/data/models/case_study_preview.dart';
+import 'package:test/test.dart';
 
 const CaseStudyPreview _kCaseStudy = CaseStudyPreview(
   title: 'Clinic booking site',

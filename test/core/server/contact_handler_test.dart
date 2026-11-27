@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:flutter_test/flutter_test.dart';
 import 'package:presentation_site/core/server/contact_handler.dart';
 import 'package:shelf/shelf.dart';
+import 'package:test/test.dart';
 
 final Uri _kUrl = Uri.parse('http://localhost/api/contact');
 const Map<String, String> _kGood = <String, String>{

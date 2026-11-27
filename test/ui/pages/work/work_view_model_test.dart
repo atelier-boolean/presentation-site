@@ -1,7 +1,7 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:presentation_site/data/models/case_study_preview.dart';
 import 'package:presentation_site/ui/pages/work/work_state.dart';
 import 'package:presentation_site/ui/pages/work/work_view_model.dart';
+import 'package:test/test.dart';
 
 const CaseStudyPreview _kApp = CaseStudyPreview(
   title: 'Banking app',

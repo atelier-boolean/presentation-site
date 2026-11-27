@@ -12,9 +12,8 @@ help: ## List the commands
 	@grep -E '^[a-z]+:.*## ' $(MAKEFILE_LIST) \
 		| awk 'BEGIN {FS = ":.*## "}; {printf "  make %-6s %s\n", $$1, $$2}'
 
-# Flutter's pub, not Dart's: the site embeds Flutter (`jaspr.flutter: embedded`).
 get: ## Fetch the packages
-	$(FVM) flutter pub get
+	$(FVM) dart pub get
 
 clean: ## Delete build output and caches, then fetch the packages again
 	rm -rf .dart_tool build

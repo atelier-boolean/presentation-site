@@ -1,6 +1,6 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:presentation_site/data/repos/contact_send_result.dart';
 import 'package:presentation_site/ui/pages/contact/contact_state.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('ContactRejected', () {
