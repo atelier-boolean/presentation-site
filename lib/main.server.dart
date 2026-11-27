@@ -5,6 +5,8 @@ import 'dart:io';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/server.dart';
 import 'package:presentation_site/core/server/api_handler.dart';
+import 'package:presentation_site/core/server/cache_middleware.dart';
+import 'package:presentation_site/core/server/gzip_middleware.dart';
 import 'package:presentation_site/main.server.options.dart';
 import 'package:presentation_site/ui/app.dart';
 import 'package:shelf/shelf.dart';
@@ -27,7 +29,11 @@ void main() async {
   // main() runs again on every hot reload: only the latest run keeps its server.
   final Object reloadLock = activeReloadLock = Object();
   final HttpServer server = await shelf_io.serve(
-    const Pipeline().addMiddleware(logRequests()).addHandler(_router.call),
+    const Pipeline()
+        .addMiddleware(logRequests())
+        .addMiddleware(GzipMiddleware.middleware)
+        .addMiddleware(CacheMiddleware.middleware)
+        .addHandler(_router.call),
     InternetAddress.anyIPv4,
     _kPort,
     shared: true,
