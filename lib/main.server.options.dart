@@ -8,6 +8,8 @@ import 'package:jaspr/server.dart';
 import 'package:jaspr_design_system/src/theme/ds_theme.dart' as _ds_theme;
 import 'package:presentation_site/ui/pages/contact/contact_form.dart'
     as _contact_form;
+import 'package:presentation_site/ui/pages/work/work_browser.dart'
+    as _work_browser;
 
 /// Default [ServerOptions] for use with your Jaspr project.
 ///
@@ -31,6 +33,9 @@ ServerOptions get defaultServerOptions => ServerOptions(
     _contact_form.ContactForm: ClientTarget<_contact_form.ContactForm>(
       'contact_form',
       params: __contact_formContactForm,
+    ),
+    _work_browser.WorkBrowser: ClientTarget<_work_browser.WorkBrowser>(
+      'work_browser',
     ),
   },
   styles: () => [..._ds_theme.DsTheme.styles],

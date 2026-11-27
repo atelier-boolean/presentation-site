@@ -8,6 +8,8 @@ import 'package:jaspr/client.dart';
 
 import 'package:presentation_site/ui/pages/contact/contact_form.dart'
     deferred as _contact_form;
+import 'package:presentation_site/ui/pages/work/work_browser.dart'
+    deferred as _work_browser;
 
 /// Default [ClientOptions] for use with your Jaspr project.
 ///
@@ -33,6 +35,10 @@ ClientOptions get defaultClientOptions => ClientOptions(
         invalid: p['invalid'] as bool,
       ),
       loader: _contact_form.loadLibrary,
+    ),
+    'work_browser': ClientLoader(
+      (p) => _work_browser.WorkBrowser(),
+      loader: _work_browser.loadLibrary,
     ),
   },
 );
